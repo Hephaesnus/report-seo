@@ -1,0 +1,5 @@
+# Source data exports — keep local, don't publish
+*.csv
+
+# macOS
+.DS_Store
