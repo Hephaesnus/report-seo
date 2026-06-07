@@ -107,6 +107,7 @@
   .pill.bad  { background: var(--red-bg);   color: var(--red);   }
   .pill.muted{ background: var(--neutral-100); color: var(--neutral-600); }
   .pill.new  { background: var(--blue-bg);  color: var(--blue);  }
+  .pill.eu   { background: var(--blue-bg);  color: var(--blue);  }
 
   .delta-col { font-size: 11.5px; font-weight: 600; white-space: nowrap; }
   .delta-col.up   { color: var(--green); }
@@ -305,6 +306,18 @@ const TARGET_MARKETS = [
   { iso: "França",      flag: "🇫🇷", label: "FR" },
   { iso: "Itália",      flag: "🇮🇹", label: "IT" }
 ];
+
+// Sales geography = EU-27 (matches SHIPPING_RATES in the website's lib/shipping.ts).
+// We only ship inside the EU-27, so anything outside is "Fora do funil" regardless
+// of how well it engages (e.g. Norway/Switzerland/UK convert but we can't sell there).
+// Names in Portuguese to match the GSC export labels used in seo-data.js.
+const EU27 = new Set([
+  "Portugal", "Espanha", "França", "Itália", "Alemanha", "Países Baixos",
+  "Áustria", "Bélgica", "Bulgária", "Chéquia", "República Checa", "Chipre",
+  "Croácia", "Dinamarca", "Eslováquia", "Eslovénia", "Estónia", "Finlândia",
+  "Grécia", "Hungria", "Irlanda", "Letónia", "Lituânia", "Luxemburgo",
+  "Malta", "Polónia", "Roménia", "Suécia", "Holanda"
+]);
 
 const MONTHS_PT = ["","jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 
@@ -671,9 +684,12 @@ function renderCountries(p) {
   const totalImp = p.countries.reduce((s, c) => s + c.impressions, 0);
   document.getElementById("countries-tbody").innerHTML = p.countries.map(c => {
     const isTarget = TARGET_MARKETS.some(m => m.iso === c.name);
+    const isEU = EU27.has(c.name);
     const badge = isTarget
       ? `<span class="pill good">Mercado-alvo</span>`
-      : (c.ctr === 0 && c.impressions >= 10 ? `<span class="pill muted">Fora do funil</span>` : "");
+      : isEU
+        ? `<span class="pill eu">UE — vendável</span>`
+        : `<span class="pill muted">Fora do funil</span>`;
     return `<tr>
       <td>${c.flag} ${c.name}</td>
       <td class="num">${c.clicks}</td>
