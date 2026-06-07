@@ -114,7 +114,7 @@
   .delta-col.flat { color: var(--neutral-400); }
 
   /* ── MARKET GRID ── */
-  .market-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; margin-bottom: 18px; }
+  .market-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 18px; }
   .market-card { background: white; border: 1px solid var(--neutral-200); border-radius: 10px; padding: 14px; text-align: center; }
   .market-card .flag { font-size: 26px; margin-bottom: 3px; }
   .market-card .mname { font-size: 11px; color: var(--neutral-600); font-weight: 700; margin-bottom: 6px; }
@@ -264,7 +264,7 @@
   <!-- ⑥ PAÍSES (target markets) -->
   <section>
     <h2>Países</h2>
-    <p class="lede" id="countries-lede">Os 5 mercados-alvo em destaque. Abaixo, tabela completa.</p>
+    <p class="lede" id="countries-lede">Os 4 mercados-alvo em destaque. Abaixo, tabela completa.</p>
     <div class="market-grid" id="market-grid"></div>
     <div class="table-wrap">
       <table>
@@ -303,8 +303,7 @@ const TARGET_MARKETS = [
   { iso: "Portugal",    flag: "🇵🇹", label: "PT" },
   { iso: "Espanha",     flag: "🇪🇸", label: "ES" },
   { iso: "França",      flag: "🇫🇷", label: "FR" },
-  { iso: "Itália",      flag: "🇮🇹", label: "IT" },
-  { iso: "Reino Unido", flag: "🇬🇧", label: "EN" }
+  { iso: "Itália",      flag: "🇮🇹", label: "IT" }
 ];
 
 const MONTHS_PT = ["","jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
