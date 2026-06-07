@@ -210,7 +210,6 @@ const SEO_DATA = {
       observations: "Quase todos os cliques (4/9) vêm da query de marca 'sallus'. O maior problema isolado é a URL /en/blog/o-que-e-retardante-de-fogo-como-funciona com 182 impressões e 0 cliques — slug em português numa rota inglesa. França tem o CTR mais alto dos mercados-alvo (6.45%) e duas queries quase no top 10. Este diagnóstico é a baseline: os números absolutos são baixos por ser um site novo.",
 
       actions: [
-        { text: "Traduzir slugs blog PT→EN/FR/IT/ES",     priority: "alta",  status: "pendente",  context: "/en/blog/o-que-e-retardante-de-fogo-como-funciona — 182 imp, 0 cliques. Maior fuga isolada do site." },
         { text: "Auditar canonicals apex vs www",          priority: "baixa", status: "pendente",  context: "sallus.pt e www.sallus.pt a aparecer separados no GSC. Confirmar 301 e canonical tags." },
         { text: "Investigar query 'sallus guard'",         priority: "baixa", status: "pendente",  context: "33 imp, pos 3.48, 0 cliques — combinação anómala. Possível Knowledge Panel ou produto concorrente." },
         { text: "Otimizar PDPs inglesas (1L, 5L, 25L)",   priority: "media", status: "pendente",  context: "/en/produto/sallus-retardant-1l pos 19.6, 5l pos 26.9 — título + Product JSON-LD." },
